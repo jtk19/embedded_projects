@@ -1,0 +1,12 @@
+KERNEL_VER=2.6.35.14-95.fc14.x86_64
+
+obj-m := evbug.o
+
+KDIR  := /lib/modules/$(KERNEL_VER)/build
+PWD   := $(shell pwd)
+
+default:
+	sudo $(MAKE) -C $(KDIR) M=$(PWD) modules
+
+clean:
+	rm -rf evbug.ko evbug.o evbug.mod.*

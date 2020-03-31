@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<title>FirEngine Design</title>
+
+<style type="text/css">
+h1 {
+	font-size: 36pt;
+	color:#1C1259;
+	line-height: 1em;
+	margin-bottom: 1em;
+}
+h2 {
+	font-size: 24pt;
+	color:#1C1259;
+	line-height: 3em;
+	margin-bottom: 2em;
+}
+h2:after {
+	content:' ';
+    display:block;
+    border:2px solid black;
+	line-height: 3em;
+}
+h3 {
+	font-size: 16pt;
+	color:#1C1259;
+}
+h3:after {
+	content:' ';
+    display:block;
+    border:1px solid black;
+}
+body {
+	color: #666;
+	font: 12pt "Open Sans", "HelveticaNeue - Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+	margin-right: 10pt;
+	margin-left: 10pt;
+	margin-top: 6.0pt;
+	margin-bottom: 6.0pt;
+}
+input {
+	color: #666;
+	font: 12pt "Open Sans", "HelveticaNeue - Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+	margin-right: 10pt;
+	margin-left: 10pt;
+	margin-top: 6.0pt;
+	margin-bottom: 6.0pt;
+}
+p {
+	margin-left: 90.0pt;
+}
+table {
+	margin-top: 12.0pt;
+	margin-bottom: 12.0pt;
+	margin-left: 90.0pt;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+table.t1 td, th {
+  padding: 6px 15px;
+  text-align: center;
+}
+table.t1 th {
+  background: #1C1259;
+  color: #fff;
+  text-align: center;
+}
+table.t1 tr:first-child th:first-child {
+  border-top-left-radius: 6px;
+}
+table.t1 td:first-child {
+  font: 16px Courier;
+}
+table.tcode td {
+  font: 16px Courier;
+  text-align: left;
+  color: black;
+}
+table.t1 tr:first-child th:last-child {
+  border-top-right-radius: 6px;
+}
+table.t1 td {
+  border-right: 1px solid #c6c9cc;
+  border-bottom: 1px solid #c6c9cc;
+}
+table.t1 td:first-child {
+  border-left: 1px solid #c6c9cc;
+}
+table.t1 tr:first-child td {
+  border-top: 1px solid #c6c9cc;
+}
+table.t1 tr:nth-child(even) td {
+  background: #eaeaed;
+}
+table.t1 tr:last-child td:first-child {
+  border-bottom-left-radius: 6px;
+}
+table.t1 tr:last-child td:last-child {
+  border-bottom-right-radius: 6px;
+}
+</style>
+
+<script type="text/javascript" src="../../canvasjs/canvasjs.min.js"></script>
+</head>
+
+<body>
+
+<h2>Feature Summary</h2>
+<table class="t1">
+<tr><th>FirEngineName</th><td>test</td></tr>
+<tr><th>ClockFreq</th><td>400000000</td></tr>
+<tr><th>NumTimeSlices</th><td>32</td></tr>
+</table>
+
+<h2>FirEngine Specification</h2>
+<script type="text/javascript">
+window.onload = function () {
+	var chart0 = new CanvasJS.Chart("fir0Chart",
+	{
+		animationEnabled: true,
+		title:{
+			text: "Fir Coefficients"
+		},
+		data: [
+		{
+			type: "spline", //change type to bar, line, area, pie, etc
+			showInLegend: true,
+			dataPoints: [
+				{ x: 0, y: 0 },
+				{ x: 1, y: 0.1 },
+				{ x: 2, y: 0.2 },
+				{ x: 3, y: 0.3 },
+				{ x: 4, y: -0.5 }
+			]
+			}
+		],
+		legend: {
+			cursor: "pointer",
+			itemclick: function (e) {
+				if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+					e.dataSeries.visible = false;
+				} else {
+					e.dataSeries.visible = true;
+			}
+			chart0.render();
+			}
+		}
+	});
+
+	chart0.render();
+	var chart1 = new CanvasJS.Chart("fir1Chart",
+	{
+		animationEnabled: true,
+		title:{
+			text: "Fir Coefficients"
+		},
+		data: [
+		{
+			type: "spline", //change type to bar, line, area, pie, etc
+			showInLegend: true,
+			dataPoints: [
+				{ x: 0, y: 0 },
+				{ x: 1, y: 0.2 },
+				{ x: 2, y: 0.8 },
+				{ x: 3, y: -0.8 },
+				{ x: 4, y: -0.2 },
+				{ x: 5, y: 0.1 }
+			]
+			}
+		],
+		legend: {
+			cursor: "pointer",
+			itemclick: function (e) {
+				if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+					e.dataSeries.visible = false;
+				} else {
+					e.dataSeries.visible = true;
+			}
+			chart1.render();
+			}
+		}
+	});
+
+	chart1.render();
+	var chart2 = new CanvasJS.Chart("fir2Chart",
+	{
+		animationEnabled: true,
+		title:{
+			text: "Fir Coefficients"
+		},
+		data: [
+		{
+			type: "spline", //change type to bar, line, area, pie, etc
+			showInLegend: true,
+			dataPoints: [
+				{ x: 0, y: -0.006346 },
+				{ x: 1, y: 0.006784 },
+				{ x: 2, y: 0.019075 },
+				{ x: 3, y: 0.025465 },
+				{ x: 4, y: 0.022393 },
+				{ x: 5, y: 0.009368 },
+				{ x: 6, y: -0.010354 },
+				{ x: 7, y: -0.030296 },
+				{ x: 8, y: -0.042441 },
+				{ x: 9, y: -0.039618 },
+				{ x: 10, y: -0.017884 },
+				{ x: 11, y: 0.021858 },
+				{ x: 12, y: 0.073577 },
+				{ x: 13, y: 0.127324 },
+				{ x: 14, y: 0.171679 },
+				{ x: 15, y: 0.196726 },
+				{ x: 16, y: 0.196726 },
+				{ x: 17, y: 0.171679 },
+				{ x: 18, y: 0.127324 },
+				{ x: 19, y: 0.073577 },
+				{ x: 20, y: 0.021858 },
+				{ x: 21, y: -0.017884 },
+				{ x: 22, y: -0.039618 },
+				{ x: 23, y: -0.042441 },
+				{ x: 24, y: -0.030296 },
+				{ x: 25, y: -0.010354 },
+				{ x: 26, y: 0.009368 },
+				{ x: 27, y: 0.022393 },
+				{ x: 28, y: 0.025465 },
+				{ x: 29, y: 0.019075 },
+				{ x: 30, y: 0.006784 },
+				{ x: 31, y: -0.006346 }
+			]
+			}
+		],
+		legend: {
+			cursor: "pointer",
+			itemclick: function (e) {
+				if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+					e.dataSeries.visible = false;
+				} else {
+					e.dataSeries.visible = true;
+			}
+			chart2.render();
+			}
+		}
+	});
+
+	chart2.render();
+	var chart3 = new CanvasJS.Chart("fir3Chart",
+	{
+		animationEnabled: true,
+		title:{
+			text: "Fir Coefficients"
+		},
+		data: [
+		{
+			type: "spline", //change type to bar, line, area, pie, etc
+			showInLegend: true,
+			dataPoints: [
+				{ x: 0, y: -0.006346 },
+				{ x: 1, y: 0.006784 },
+				{ x: 2, y: 0.019075 },
+				{ x: 3, y: 0.025465 },
+				{ x: 4, y: 0.171679 },
+				{ x: 5, y: 0.127324 },
+				{ x: 6, y: 0.073577 },
+				{ x: 7, y: 0.021858 },
+				{ x: 8, y: -0.017884 },
+				{ x: 9, y: -0.039618 },
+				{ x: 10, y: -0.042441 },
+				{ x: 11, y: -0.030296 },
+				{ x: 12, y: -0.010354 },
+				{ x: 13, y: 0.009368 },
+				{ x: 14, y: 0.022393 },
+				{ x: 15, y: 0.025465 },
+				{ x: 16, y: 0.019075 },
+				{ x: 17, y: 0.006784 },
+				{ x: 18, y: -0.006346 }
+			]
+			}
+		],
+		legend: {
+			cursor: "pointer",
+			itemclick: function (e) {
+				if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+					e.dataSeries.visible = false;
+				} else {
+					e.dataSeries.visible = true;
+			}
+			chart3.render();
+			}
+		}
+	});
+
+	chart3.render();
+}
+</script>
+<table class="t1">
+<tr><th>Fir#</th><td>0</td></tr>
+<tr><th>SampleFrequency</th><td>15000000</td></tr>
+<tr><th>NumCoefficients</th><td>5</td></tr>
+</table>
+
+<div id="fir0Chart" style="height: 300px; width: 80%;"></div>
+
+
+<table class="t1">
+<tr><th>Fir#</th><td>1</td></tr>
+<tr><th>SampleFrequency</th><td>17500000</td></tr>
+<tr><th>NumCoefficients</th><td>6</td></tr>
+</table>
+
+<div id="fir1Chart" style="height: 300px; width: 80%;"></div>
+
+
+<table class="t1">
+<tr><th>Fir#</th><td>2</td></tr>
+<tr><th>SampleFrequency</th><td>50000</td></tr>
+<tr><th>NumCoefficients</th><td>32</td></tr>
+</table>
+
+<div id="fir2Chart" style="height: 300px; width: 80%;"></div>
+
+
+<table class="t1">
+<tr><th>Fir#</th><td>3</td></tr>
+<tr><th>SampleFrequency</th><td>750000</td></tr>
+<tr><th>NumCoefficients</th><td>19</td></tr>
+</table>
+
+<div id="fir3Chart" style="height: 300px; width: 80%;"></div>
+
+
+<h2>FirEngine Description</h2>
+<table class="t1">
+<tr><th>Fir#</th><th>Colour</th></tr>
+<tr><td>0</td><td  style="background: #ff0000"></td></tr>
+<tr><td>1</td><td  style="background: #c0ff00"></td></tr>
+<tr><td>2</td><td  style="background: #00ff7f"></td></tr>
+<tr><td>3</td><td  style="background: #0040ff"></td></tr>
+</table>
+
+<table class="t1">
+<tr><th>TimeSlot</th><th>FirMac0</th><th>FirMac1</th><th>FirMac2</th></tr>
+<tr><td>0</td><td style="background: #ff0000">Update</td><td style="background: #00ff7f">Update</td><td style="background: #0040ff">Update</td></tr>
+<tr><td>1</td><td style="background: #c0ff00"></td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>2</td><td style="background: #c0ff00"></td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>3</td><td style="background: #c0ff00"></td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>4</td><td style="background: #c0ff00"></td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>5</td><td style="background: #c0ff00"></td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>6</td><td style="background: #c0ff00">Update</td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>7</td><td></td></td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>8</td><td></td></td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>9</td><td></td></td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>10</td><td></td></td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>11</td><td></td></td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>12</td><td style="background: #ff0000"></td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>13</td><td style="background: #ff0000"></td><td style="background: #00ff7f"></td><td></td></td></tr>
+<tr><td>14</td><td style="background: #ff0000"></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>15</td><td style="background: #ff0000"></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>16</td><td style="background: #ff0000">Update</td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>17</td><td style="background: #c0ff00"></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>18</td><td style="background: #c0ff00"></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>19</td><td style="background: #c0ff00"></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>20</td><td style="background: #c0ff00"></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>21</td><td style="background: #c0ff00"></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>22</td><td style="background: #c0ff00">Update</td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>23</td><td></td></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>24</td><td></td></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>25</td><td></td></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>26</td><td></td></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>27</td><td></td></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>28</td><td style="background: #ff0000"></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>29</td><td style="background: #ff0000"></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>30</td><td style="background: #ff0000"></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+<tr><td>31</td><td style="background: #ff0000"></td><td style="background: #00ff7f"></td><td style="background: #0040ff"></td></tr>
+</table>
+
+<h2>Coefficient Address Map</h2>
+TODO
+</body>
+
+</html>
